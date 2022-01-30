@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="container-home">
+    <h1>Titulo</h1>
+    <form [formGroup]="taskForm" (ngSubmit)="addNewTask()">
+        <input type="text" formControlName="taskInpt" placeholder="Insira o título da nova task" />
+        <textarea formControlName="taskDescription" cols="30" rows="10" placeholder="Descreva a task"></textarea>
+        <button type="submit">Adicionar nova task</button>
+    </form>
+
+    <div class="content-tasks">
+        <h3>Tarefas</h3>
+        <ul *ngFor="let item of listTasks; let i = index;">
+            <div class="task">
+                <li>Task number: {{i+1}}</li>
+                <li>Título: {{item.title}}</li>
+                <li>Descrição: {{item.description}}</li>
+                <button (click)="removeTask(i)">
+                    <mat-icon aria-hidden="false">delete</mat-icon>
+                </button>
+            </div>
+        </ul>
+    </div>
+</div>
