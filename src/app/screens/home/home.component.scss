@@ -1,0 +1,115 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 16px 0;
+
+    button{
+        background: var(--background);
+        padding: 6px;
+        cursor: pointer;
+        border-radius: 6px;
+        border: none;
+        color: #FFF;
+    }
+}
+
+.container-home{
+
+    .header{
+        // background: var(--background);
+        text-align: center;
+        height: 260px;
+        padding: 20px 0;
+
+        h1 {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 30px;
+            color: var(--background);
+        }
+
+        .register {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button{
+                border: none;
+                background: var(--background);
+                border-radius: 6px;
+                padding: 4px 10px;
+                cursor: pointer;
+
+                mat-icon{
+                    color: #FFF;
+                }
+            }
+
+            input{
+                height: 39px;
+                border: 1px solid #EFEFEF;
+                border-radius: 6px;
+                padding: 10px;
+            }
+        }
+
+        mat-slide-toggle{
+            margin-top: 15px;
+        }
+
+        .description{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            textarea{
+                margin-top: 10px;
+                border: 1px solid #EFEFEF;
+                border-radius: 6px;
+                padding: 10px;
+            }
+        }
+    }
+
+    .content-tasks{
+        text-align: center;
+        h3 {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 30px;
+            color: #3F51B5;
+        }
+
+        .task{
+            .title-task{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                li{
+                    list-style-type: square;
+                    font-family: 'Roboto';
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: var(--background);
+                    margin-right: 12px;
+                }
+
+                button{
+                    background: rgba(255, 0, 0, 0.769);
+                    border: none;
+                    border-radius: 6px;
+                    padding: 2px;
+                    cursor: pointer;
+
+                    mat-icon{
+                        font-size: 18px;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+}

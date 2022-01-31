@@ -14,6 +14,7 @@ import { MaterialGeneralModule } from 'src/app/material.module';
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialGeneralModule,
     MaterialGeneralModule
   ]
 })

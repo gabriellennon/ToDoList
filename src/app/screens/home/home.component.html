@@ -1,21 +1,39 @@
+<div class="navbar">
+    <span>VX Case</span>
+    <button (click)="logOut()">Sair</button>
+</div>
+
 <div class="container-home">
-    <h1>Titulo</h1>
-    <form [formGroup]="taskForm" (ngSubmit)="addNewTask()">
-        <input type="text" formControlName="taskInpt" placeholder="Insira o título da nova task" />
-        <textarea formControlName="taskDescription" cols="30" rows="10" placeholder="Descreva a task"></textarea>
-        <button type="submit">Adicionar nova task</button>
-    </form>
+    <div class="header">
+        <h1>To-do</h1>
+        <form [formGroup]="taskForm" (ngSubmit)="addNewTask()">
+            <div class="register">
+                <input type="text" formControlName="taskInpt" placeholder="Insira o título da nova task" />
+                <button type="submit">
+                    <mat-icon aria-hidden="false">add</mat-icon>
+                </button>
+            </div>
+            <div class="description">
+                <mat-slide-toggle (click)="withDescription()">Com descição</mat-slide-toggle>
+                <ng-container *ngIf="showDescription">
+                    <textarea formControlName="taskDescription" cols="30" rows="10" placeholder="Descreva a task"></textarea>
+                </ng-container>
+            </div>
+        </form>
+    </div>
 
     <div class="content-tasks">
         <h3>Tarefas</h3>
         <ul *ngFor="let item of listTasks; let i = index;">
             <div class="task">
-                <li>Task number: {{i+1}}</li>
+                <div class="title-task">
+                    <li>Task number: {{i+1}}</li>
+                    <button (click)="removeTask(i)">
+                        <mat-icon aria-hidden="false">delete</mat-icon>
+                    </button>
+                </div>
                 <li>Título: {{item.title}}</li>
                 <li>Descrição: {{item.description}}</li>
-                <button (click)="removeTask(i)">
-                    <mat-icon aria-hidden="false">delete</mat-icon>
-                </button>
             </div>
         </ul>
     </div>

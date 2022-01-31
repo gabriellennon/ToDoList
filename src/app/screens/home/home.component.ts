@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/model/models.model';
 
 @Component({
@@ -11,14 +12,17 @@ export class HomeComponent implements OnInit {
 
   //VARIABLES
   listTasks: Task[] = [];
+  showDescription: boolean = false;
 
   //FORMS
   public taskForm: FormGroup = new FormGroup({
     taskInpt: new FormControl('',  [Validators.required]),
-    taskDescription: new FormControl('',  [Validators.required]),
+    taskDescription: new FormControl(''),
   })
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   //FUNCTIONS
   ngOnInit(): void {
@@ -52,6 +56,14 @@ export class HomeComponent implements OnInit {
       taskInpt: '', 
       taskDescription: ''
     })
+  }
+
+  logOut(){
+    this.router.navigate(['/login'])
+  }
+
+  withDescription(){
+    this.showDescription = !this.showDescription;
   }
 
 }
